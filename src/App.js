@@ -1,25 +1,27 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomePage from './_tests_/components/HomePage';
-import PizzaOrderForm from './_tests_/components/PizzaOrderForm';
-import "./App.js"
+import Header from "./layout/Header";
+import { BrowserRouter } from "react-router-dom";
+import PageBody from "./pages/PageBody";
+import styled from "styled-components";
+import myImage from "./mvp-banner.png";
+
+const StyledApp = styled.div`
+  background-image: url(${myImage});
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+`;
 
 const App = () => {
   return (
-    <Router>
-    <Switch>
-      <Route path="/pizza" component={PizzaOrderForm} />
-      <Route path="/" component={HomePage} />
-      <h1>Teknolojik Yemekler</h1>
-      <p>Burdaki kodu silip kendi headerınızı ekleyebilirsiniz</p>
-      <HomePage/>
-      <PizzaOrderForm/>
-    </Switch>
-  </Router>
-     
+    <StyledApp>
+      <Header />
+      <BrowserRouter>
+        <PageBody />
+      </BrowserRouter>
+    </StyledApp>
   );
 };
-
-
 
 export default App;
